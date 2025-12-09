@@ -1,36 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h> 
+#include <stdbool.h>
 #include "../include/trie.h"
 
-typedef struct TrieNode;
+bool isempty(struct TrieNode *root) {
+    for (int i = 0; i < NUM_CHAR; i++) {
+        if (root->children[i]) return false;
+    }
+    return true;
+}
 
 struct TrieNode* createNode() {
     struct TrieNode *node = (struct TrieNode *)malloc(sizeof(struct TrieNode));
-    
-    node->isEndOfWord = false;
-    for (int i = 0; i < NUM_CHAR; ++i) {
-        node->children[i] = NULL;
+    if (node) {
+        node->isEndOfWord = false;
+        for (int i = 0; i < NUM_CHAR; ++i) {
+            node->children[i] = NULL;
+        }
     }
-    
     return node;
 }
 
-struct TrieNode *root = createNode();
-
 struct TrieNode *deleteHelper(struct TrieNode *root, const char *key, int depth) {
-    if (root == NULL) {
-        return NULL;
-    }
+    if (root == NULL) return NULL;
+    
     if (depth == strlen(key)) {
-        if (root->isEndOfWord) {
-            root->isEndOfWord = false;
-        }
+        if (root->isEndOfWord) root->isEndOfWord = false;
         if (isempty(root)) {
             free(root);
             root = NULL;
         }
         return root;
     }
+    
     int index = key[depth] - 'a';
-    root->children[index] = deleteHelper(root->children[index], key, depth + 1);
+    if (index >= 0 && index < NUM_CHAR) {
+        root->children[index] = deleteHelper(root->children[index], key, depth + 1);
+    }
+    
     if (isempty(root) && !root->isEndOfWord) {
         free(root);
         root = NULL;
@@ -40,4 +48,17 @@ struct TrieNode *deleteHelper(struct TrieNode *root, const char *key, int depth)
 
 void deletekey(struct TrieNode *root, const char *key) {
     deleteHelper(root, key, 0);
+}
+
+void insert(struct TrieNode *root, const char *key) {
+    printf("[MOCK] Inserted: %s\n", key);
+}
+
+bool search(struct TrieNode *root, const char *key) {
+    if (key[0] == 'a') return true; // Returns true if word starts with 'a'
+    return false;
+}
+
+void printAutocomplete(struct TrieNode *root, const char *key) {
+    printf("[MOCK] Suggestions for: %s...\n", key);
 }

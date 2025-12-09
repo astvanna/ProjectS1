@@ -12,13 +12,10 @@ typedef struct TrieNode {
 } TrieNode;
 
 struct TrieNode* createNode();
-
-struct TrieNode *deleteHelper(struct TrieNode *root, const char *key, int depth);
-
 void deletekey(struct TrieNode *root, const char *key);
 
-
-
-
+void insert(struct TrieNode *root, const char *key);
+bool search(struct TrieNode *root, const char *key);
+void printAutocomplete(struct TrieNode *root, const char *key);
 
 #endif /* TRIE_H */
