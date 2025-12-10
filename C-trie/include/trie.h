@@ -18,7 +18,11 @@ struct TrieNode *deleteHelper(struct TrieNode *root, const char *key, int depth)
 void deletekey(struct TrieNode *root, const char *key);
 
 
+int searchWord(TrieNode *root, const char *word);
 
+int startsWith(TrieNode *root, const char *prefix);
+
+void autocomplete(TrieNode *root, const char *prefix);
 
 
 #endif /* TRIE_H */
