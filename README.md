@@ -7,7 +7,7 @@ C-Trie is a lightweight, efficient **Trie (prefix tree) library in C** designed 
 This project includes:
 
 * A reusable **Trie library (`trie.h` / `trie.c`)**
-* An **interactive demo program** (`main.c`)
+* An **interactive demo program** (`demo_main.c`)
 * **Unit tests** (`test_trie.c`)
 * Optional **dictionary loading** from `dictionary.txt`
 * **Trie visualization** for better understanding
@@ -23,7 +23,7 @@ C-trie/
 │ src/
 │   └── trie.c          # Trie implementation
 │ demo/
-│   └── main.c          # Interactive demo program
+│   └── demo_main.c          # Interactive demo program
 │ tests/
 │   └── test_trie.c     # Unit tests
 │ build/
