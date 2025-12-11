@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "../include/trie.h"
 
 int main() {
@@ -27,8 +24,12 @@ int main() {
         }
 
         if (choice == 1) insert(root, buffer);
-        else if (choice == 2) printf(search(root, buffer) ? "Found!\n" : "Not Found.\n");
-        else if (choice == 3) printAutocomplete(root, buffer);
+        else if (choice == 2) {
+            printf(search(root, buffer) ? "Found!\n" : "Not Found.\n");
+        }
+        else if (choice == 3) {
+            printAutocomplete(root, buffer);
+        }
     }
     return 0;
 }

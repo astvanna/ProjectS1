@@ -1,11 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
 #include "../include/trie.h"
 
 bool isempty(struct TrieNode *root) {
-    for (int i = 0; i < NUM_CHAR; i++) {
+    for (int i = 0; i < NUM_CHAR; ++i) {
         if (root->children[i]) return false;
     }
     return true;
