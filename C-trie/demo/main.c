@@ -31,5 +31,6 @@ int main() {
             printAutocomplete(root, buffer);
         }
     }
+    
     return 0;
 }

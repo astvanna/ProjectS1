@@ -1,7 +1,7 @@
 #ifndef TRIE_H
 #define TRIE_H
 
-#define NUM_CHAR 256
+#define NUM_CHAR 26
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,10 +14,11 @@ typedef struct TrieNode {
 } TrieNode;
 
 struct TrieNode* createNode();
+void insert(struct TrieNode *root, const char *key);
 void deletekey(struct TrieNode *root, const char *key);
 
-void insert(struct TrieNode *root, const char *key);
-bool search(struct TrieNode *root, const char *key);
-void printAutocomplete(struct TrieNode *root, const char *key);
+int searchWord(TrieNode *root, const char *word);
+int startsWith(TrieNode *root, const char *prefix);
+void autocomplete(TrieNode *root, const char *prefix);
 
 #endif /* TRIE_H */
